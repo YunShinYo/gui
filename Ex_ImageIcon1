@@ -1,0 +1,35 @@
+package gui2;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
+public class Ex_ImageIcon1 extends JFrame {
+	Ex_ImageIcon1() {
+		Container c = getContentPane();
+		setVisible(true);
+		c.setLayout(new FlowLayout());
+		//c.setLayout(null);
+
+		JLabel j = new JLabel("안녕하세요");
+		j.setLocation(130, 50);
+		j.setSize(200, 20);
+		
+		ImageIcon i = new ImageIcon("C:/Users/soldesk/Desktop/크롱.jpg");
+		JLabel j1 = new JLabel(i); // 사진은 항상 JLabel 매개변수로 들어옴
+
+		JLabel j2 = new JLabel("화요일이네요", SwingConstants.CENTER); // SwingConstants:위치를 지정할떄 쓴다(포지셔닝)
+
+		c.add(j);
+		c.add(j1);
+		c.add(j2);
+	}
+
+	public static void main(String[] args) {
+		new Ex_ImageIcon1();
+	}
+}
