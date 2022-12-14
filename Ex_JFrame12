@@ -1,0 +1,37 @@
+package gui2;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class Ex_JFrame12 extends JFrame {
+	Ex_JFrame12() {
+		Container c=getContentPane();
+		setVisible(true);
+		JButton j1=new JButton("one");
+		JButton j2=new JButton("two");
+		
+		
+		c.add(j1);
+		c.add(j2);
+		c.setLayout(new FlowLayout());
+		
+		j1.addMouseMotionListener(new MouseMotionListener() {
+			public void mouseDragged(MouseEvent e) {
+				System.out.println(e.getX()+ " "+e.getY());
+			}
+
+			public void mouseMoved(MouseEvent e) {
+
+			}
+		});
+	}
+
+	public static void main(String[] args) {
+		new Ex_JFrame12();
+	}
+}
