@@ -1,0 +1,21 @@
+package gui1;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Ex_JFrame6 extends JFrame {
+	public Ex_JFrame6() {
+		Container c = getContentPane();
+
+		JLabel j = new JLabel("자바");
+
+		c.setLayout(new FlowLayout());
+		c.add(j);
+
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		new Ex_JFrame6();
+	}
+}
