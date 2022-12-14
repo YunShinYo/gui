@@ -1,0 +1,42 @@
+package gui3;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class test_1214_3 extends JFrame {
+	test_1214_3() {
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		setVisible(true);
+		setTitle("로그인");
+
+		JLabel j1 = new JLabel("id");
+		JLabel j2 = new JLabel("pw");
+		JTextField jt1 = new JTextField(10);
+		JTextField jt2 = new JTextField(10);
+
+		c.add(j1);
+		c.add(jt1);
+		c.add(j2);
+		c.add(jt2);
+
+		jt1.addActionListener(new ActionListener() {	//JTextField는 이벤트처리가 enter이다.
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String a=jt1.getText();
+					System.out.println(a);
+			}
+		});
+	}
+
+	public static void main(String[] args) {
+		new test_1214_3();
+	}
+
+}
