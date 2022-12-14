@@ -1,0 +1,100 @@
+package gui3;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+
+public class gui_test_1214_2 extends JFrame {
+	gui_test_1214_2() {
+		Container c = getContentPane();
+		setVisible(true);
+		c.setLayout(new FlowLayout());
+
+		c.setBackground(Color.RED);
+
+		// 1.
+		JButton ok = new JButton("Ok");
+		JButton cancel = new JButton("Cancel");
+
+		ok.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("확인");
+			}
+		});
+		cancel.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				cancel.setEnabled(false);
+			}
+		});
+
+		c.add(ok);
+		c.add(cancel);
+
+		// 2.
+		// ButtonGroup gr = new ButtonGroup();
+		JRadioButton jr1 = new JRadioButton("magenta");
+		JRadioButton jr2 = new JRadioButton("red");
+
+		// gr.add(jr1);
+		// gr.add(jr2);
+
+		jr1.addItemListener(new ItemListener() {
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				if (e.getStateChange() == ItemEvent.SELECTED) {
+					jr1.setBackground(Color.MAGENTA);
+				}
+			}
+		});
+		jr2.addItemListener(new ItemListener() {
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				if (e.getStateChange() == ItemEvent.SELECTED) {
+					jr2.setBackground(Color.RED);
+				}
+			}
+		});
+
+		c.add(jr1);
+		c.add(jr2);
+		
+		// 3.
+		JLabel j = new JLabel("Hi");
+
+		j.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				j.setText("안녕");
+				//JLabel label=((JLabel)e.getSource());
+				//label.setText("안녕");
+			}
+		});
+		c.add(j);
+	}
+
+	public static void main(String[] args) {
+
+		new gui_test_1214_2();
+		// 1. 컨텐트팬의 배경색을 빨간색으로 하고, Ok, Cancel 버튼을부착한 frame하나 만들어라
+		// Ok버튼을 누르면 “확인”, Cancel을 누르면 버튼을 비활성화 시켜라.
+		// (MouseAdapter로 접근)
+
+		// 2. 라디오버튼 이름을 “magenta”, ”red” 두개로 설정하고magenta를 누르면
+		// 버튼의 색을 magenta로, red를 누르면 red색으로 변경해라
+
+		// 3. JLabel j=new JLabel(“Hi);
+		// 에서 j를 마우스로 클릭하면 “안녕”이라고 바꾸는 코드를 작성해라.
+	}
+
+}
