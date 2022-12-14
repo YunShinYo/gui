@@ -1,0 +1,82 @@
+package gui2;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class gui_1213_1 extends JFrame {
+	gui_1213_1() {
+		Container c = getContentPane();
+		setVisible(true);
+
+		c.setLayout(new FlowLayout());
+		c.setBackground(Color.BLUE);
+
+		JButton ok = new JButton("Ok");
+		JButton cancel = new JButton("Cancel");
+		JButton get = new JButton("Get");
+
+		c.add(ok);
+		c.add(cancel);
+		c.add(get);
+
+		ok.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				c.setBackground(Color.ORANGE);
+
+// 버튼색이 바뀜..
+// Container c = (Container) e.getSource();
+// c.setBackground(Color.ORANGE);
+			}
+		});
+		cancel.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Container c = (Container) e.getSource();
+				c.setEnabled(false);
+			}
+		});
+
+		get.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println(e.getX() + " " + e.getY());
+			}
+		});
+	}
+
+	public static void main(String[] args) {
+// 1. 컨텐트팬의 배경색을 blue색으로 하고, Ok, Cancel, Get 버튼을 부착한 프로그램 작성해라.
+
+// 1.1Ok 버튼을 누르면 컨텐트팬 색을 orange, Cancel 버튼을 누르면 버튼을 비활성화시키고
+// Get 버튼을 누르면 버튼의 위치(x,y)값을 출력해라
+
+		new gui_1213_1();
+	}
+}
