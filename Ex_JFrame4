@@ -1,0 +1,29 @@
+package gui1;
+import java.awt.Container;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class Ex_JFrame4 extends JFrame{
+	Ex_JFrame4(){
+		JButton j1=new JButton("one");	//one, two를 서로 다른 객체로 인식한다.
+		JButton j2=new JButton("two");
+		
+		Container c=getContentPane();
+		
+		c.add(j1);
+		c.add(j2);
+		
+		c.setLayout(new FlowLayout());
+		
+		setVisible(true);
+		
+		
+	}
+
+	public static void main(String[] args) {
+		// 버튼 2개 one, two 만들어서 컨테이너에 부착하기
+		new Ex_JFrame4();
+	}
+}
