@@ -1,0 +1,41 @@
+package gui1;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+/*
+class Mouse extends MouseAdapter{	//여기서 작동을 하게 만들겠다..
+	public void mouseClicked(MouseEvent e) {//마우스어댑터 클래스 상속받아 오버라이드 함
+		System.out.println("마우스클릭");	//출력->마우스클릭 
+	}
+}
+public class Ex_JFrame5 {
+
+	public static void main(String[] args) {
+		//이벤트 리스너 : 이벤트를 처리하는 자바 프로그램
+		//이벤트 리스너는 인터페이스를 제공하며
+		//개발자는 이벤트 리스너 인터페이스를 상속받고
+		//추상메소드를 구현하면 됨
+		
+		//MouseEvent : 마우스 동작..
+		//ActionEvent : JButton, JMenuItem, JTextField
+		//ItemEvent : JCheckBox, JRadioButton
+		  
+		 인터페이스:마우스 리스너
+		 클래스 :마우스 어댑터
+		 		 
+		JFrame j = new JFrame();
+		j.setLayout(new FlowLayout());	//JFrame을 상속받아서 순서대로 나열하겠다.
+
+		JButton j1 = new JButton("one"); // one, two를 서로 다른 객체로 인식한다.
+		JButton j2 = new JButton("two");
+
+		j1.addMouseListener(new Mouse());	//리스너(어댑터(클릭))
+		// one버튼을 마우스로 클릭했을 때..
+		j2.addMouseListener(new Mouse());
+
+		j.add(j1);
+		j.add(j2);
+		j.setVisible(true);	//JFrame 띄웠다
+
+	}
+}*/
