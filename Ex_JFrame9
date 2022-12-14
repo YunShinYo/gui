@@ -1,0 +1,22 @@
+package gui2;
+
+import java.awt.Container;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class Ex_JFrame9 extends JFrame {
+
+	Ex_JFrame9() {
+		Container c = getContentPane();
+		setVisible(true);
+
+		JLabel j=new JLabel("user1");
+		c.add(j);
+	}
+
+	public static void main(String[] args) {
+		
+		new Ex_JFrame9();
+	}
+}
