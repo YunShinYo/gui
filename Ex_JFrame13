@@ -1,0 +1,38 @@
+package gui2;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+/*
+//다중상속
+class Mouse extends MouseAdapter implements MouseMotionListener{
+	public void	mouseDragged(MouseEvent e) {
+		 Container c= (Container)e.getSource(); //이벤트가 일어난 원천 알아내기 
+		 c.setBackground(Color.WHITE);
+	}
+	public void	mouseMoved(MouseEvent e) {}
+	
+	public void	mouseReleased(MouseEvent e) {
+		 Container c= (Container)e.getSource(); //이벤트가 일어난 원천 알아내기 
+		 c.setBackground(Color.BLACK);
+	}
+}
+public class Ex_JFrame13 extends JFrame{
+	Ex_JFrame13(){
+		Container c = getContentPane();
+		setVisible(true);
+		
+		c.setBackground(Color.BLACK);
+		
+		c.addMouseListener(new Mouse()); //5개 (click, enter...)
+		c.addMouseMotionListener(new Mouse()); //2개(drag, move)
+		
+		
+	}
+	public static void main(String[] args) {
+		
+		new Ex_JFrame13();
+		
+	}
+}
+*/
