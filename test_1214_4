@@ -9,15 +9,17 @@ import javax.swing.JFrame;
 
 public class gui_test_1214_4 extends JFrame{
 	gui_test_1214_4(){
-		Color color[]= {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE};
 		Container c=getContentPane();
 		setVisible(true);
+		
+		Color c1[]= {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE};
+		
 		c.setLayout(new GridLayout(1,5));
 		
 		JButton b[]=new JButton[5];
 		for(int i=0; i<b.length; i++) {
-			b[i]=new JButton(String.valueOf(i));
-			b[i].setBackground(color[i]);
+			b[i]=new JButton();
+			b[i].setBackground(c1[i]);
 			c.add(b[i]);
 		}
 		setVisible(true);
