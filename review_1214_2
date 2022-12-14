@@ -1,0 +1,97 @@
+package gui3;
+
+import java.awt.GridLayout;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JRadioButton;
+
+class Check implements ItemListener{
+	JRadioButton b1,b2,b3;
+	Check(JRadioButton b1, JRadioButton b2, JRadioButton b3){ 
+		this.b1=b1;
+		this.b2=b2;
+		this.b3=b3;
+	}
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		if(e.getStateChange()==ItemEvent.SELECTED) {
+			//체크박스 선택 했을때 
+			//라디오버튼을 활성화
+			//b1.setVisible(false);
+			b1.setEnabled(true);
+			b2.setEnabled(true);
+			b3.setEnabled(true);
+		}
+		else {	//체크박스 선택 안했을 시
+			b1.setEnabled(false);
+			b2.setEnabled(false);
+			b3.setEnabled(false);
+		}
+	}
+}
+public class gui_review_1214_2{
+	public static void main(String[] args) {
+		JFrame j=new JFrame();	
+		//JFrame을 객체생성했기 때문에
+		//JFrame을 상속받을때와 같이 ContentPane을 추가시켜줄 필요가 없다
+		
+		//0행1열로 배치관리자
+		j.setLayout(new GridLayout(0,1));	//0행1열
+		
+		JCheckBox jc=new JCheckBox("공부 선택");
+		
+		JRadioButton b1=new JRadioButton("Java");
+		JRadioButton b2=new JRadioButton("Python");
+		JRadioButton b3=new JRadioButton("C#");
+		
+		ButtonGroup g1=new ButtonGroup();
+		g1.add(b1);	//버튼그룹에 J라디오버튼 3개 추가
+		g1.add(b2);
+		g1.add(b3);
+		
+		j.add(jc);	//add순서대로 컴포넌트가 배치된다
+		j.add(b1);	//J프레임에 J라디오버튼 3개 추가
+		j.add(b2);
+		j.add(b3);
+		
+		//
+		//라디오버튼 비활성화하고 체크박스(공부선택)을 누르면 라디오버튼이 활성화되도록 만들겠다
+		b1.setEnabled(false);
+		b2.setEnabled(false);
+		b3.setEnabled(false);
+		
+		//체크박스 선택시
+		jc.addItemListener(new Check(b1,b2,b3));
+		
+		//라디오버튼 이벤트 처리
+		b1.addItemListener(new ItemListener() {
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				if(e.getStateChange()==ItemEvent.SELECTED) {
+					System.out.println("자바!!");					
+				}
+			}
+		});
+		b2.addItemListener(new ItemListener() {
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				if(e.getStateChange()==ItemEvent.SELECTED) {
+					System.out.println("파이썬!!");					
+				}
+			}
+		});
+		b3.addItemListener(new ItemListener() {
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				if(e.getStateChange()==ItemEvent.SELECTED) {
+					System.out.println("C#!!");					
+				}
+			}
+		});
+		j.setVisible(true);
+	}
+}
