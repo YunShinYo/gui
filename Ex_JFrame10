@@ -1,0 +1,41 @@
+package gui2;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+class My implements ActionListener{
+	public void actionPerformed(ActionEvent e) {
+		JButton b=(JButton)e.getSource(); //이벤트가 어디에서 발생했냐(다운캐스팅)
+		
+		if(b.getText().equals("클릭")) {	//이벤트가 발생한 버튼명을 알아냄
+			b.setText("click");	//버튼명을 영어로 세팅함
+		}
+		else {
+			b.setText("클릭");
+		}
+	}
+}
+public class Ex_JFrame10 extends JFrame {
+
+	Ex_JFrame10() {
+		Container c = getContentPane();
+		
+		c.setLayout(new FlowLayout());
+		JButton b=new JButton("클릭");
+		
+		b.addActionListener(new My());
+		//연결 Action이벤트리스너 달기
+		
+		c.add(b);
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		new Ex_JFrame10();
+	}
+}
