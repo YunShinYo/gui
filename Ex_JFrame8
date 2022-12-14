@@ -1,0 +1,28 @@
+package gui2;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class Ex_JFrame8 extends JFrame {
+
+	Ex_JFrame8() {
+		Container c = getContentPane();
+		c.setLayout(new GridLayout()); // 1행10열
+
+		for (int i = 0; i < 10; i++) {
+			JButton j = new JButton(String.valueOf(i));
+			c.add(j);
+		}
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		new Ex_JFrame8();
+	}
+}
