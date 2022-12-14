@@ -1,0 +1,52 @@
+package gui3;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+//class Mouse implements ActionListener{
+//
+//	@Override
+//	public void actionPerformed(ActionEvent e) {
+//		JButton j1=(JButton)e.getSource();
+//		j1.setBackground(Color.BLACK);
+//	}
+//	
+//}
+public class Ex_JButton1 extends JFrame{
+	Ex_JButton1(){
+		Container c=getContentPane();
+		c.setLayout(new FlowLayout());
+		
+		JButton j1=new JButton("버튼 1");
+		c.add(j1);
+		setVisible(true);
+
+		//j1.addActionListener(new Mouse());
+//		j1.addActionListener(new ActionListener() {
+			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				j1.setBackground(Color.BLACK);
+//			}
+//		});
+		
+		j1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				j1.setBackground(Color.BLACK);
+			}
+		});
+	}
+	public static void main(String[] args) {
+		//버튼(JButton)클릭시 이벤트 처리 방법 3가지
+		//1. addMouseListener(new MouseAdapter({});
+		//2. addActionListener(new ActionListener(){});	//익명으로 접근
+		//3. addActionListener(new Mouse());	//클래스로 접근
+		new Ex_JButton1();
+	}
+}
