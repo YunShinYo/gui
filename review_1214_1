@@ -1,0 +1,32 @@
+package gui3;
+
+import java.awt.Container;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class gui_review_1214_1 extends JFrame {
+	gui_review_1214_1() {
+		setTitle("프레임");
+		setVisible(true);
+		setSize(300, 300); // 프레임 크기
+		
+		Container c=getContentPane(); 	//프레임의 컨텐트팬을 알아낸다.
+		//배치관리자 3가지
+		//1. FlowLayout
+		//2. BorderLayout
+		//3. GridLayout
+		//4. 없음(null 주기)
+		c.setLayout(null);	//컨텐트팬의 배치관리자 제거함
+		
+		JLabel j=new JLabel("하이");
+		j.setLocation(130,50);	//컴포넌트 왼쪽 상단 모서리 좌표(130,50)으로 설정(숫자값은 pixel값)
+		j.setSize(200, 20); 	//컴포넌트 크기(안주면 "하이"가 안나온다)
+		c.add(j);
+		
+	}
+
+	public static void main(String[] args) {
+		new gui_review_1214_1();
+	}
+}
