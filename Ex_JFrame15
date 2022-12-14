@@ -1,0 +1,29 @@
+package gui2;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+public class Ex_JFrame15 extends JFrame {
+	Ex_JFrame15() {
+		Container c = getContentPane();
+		setVisible(true);
+		c.setLayout(new FlowLayout());
+		
+		JCheckBox j=new JCheckBox("자바");
+		c.add(j);
+		
+		j.addItemListener(new ItemListener() {
+			
+			@Override
+			public void itemStateChanged(ItemEvent e) {	//추상메소드
+				if(e.getStateChange()==ItemEvent.SELECTED) {
+					System.out.println("자바 재밌당");
+				}
+			}
+		});
+	}
+
+	public static void main(String[] args) {
+		new Ex_JFrame15();
+	}
+}
