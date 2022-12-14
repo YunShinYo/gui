@@ -1,0 +1,45 @@
+package gui3;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+
+class Text implements ActionListener {// 버튼은 대부분 action...
+	JTextArea jt;
+
+	Text(JTextArea jt) {
+		this.jt = jt;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {	//이벤트가 발생한거 모두 다 
+		jt.setText("삭제됨!");
+		jt.append("내용 입력: ");
+	}
+
+}
+
+public class Ex_JTextArea1 {
+
+	public static void main(String[] args) {
+		JFrame j = new JFrame();
+		j.setLayout(new FlowLayout());
+
+		JTextArea jt = new JTextArea(10, 20);
+		jt.append("내용 입력");
+
+		JButton b = new JButton("삭제 버튼");
+
+		// 삭제 버튼을 눌렀을 때의 이벤트 처리
+		b.addActionListener(new Text(jt));
+
+		j.add(b);
+		j.add(jt);
+		j.setVisible(true);
+	}
+
+}
