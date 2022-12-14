@@ -1,0 +1,26 @@
+package gui2;
+
+import java.awt.Container;
+import java.awt.GridLayout;
+
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+
+public class gui_1213_2 extends JFrame {
+	public gui_1213_2() {
+		Container c = getContentPane();
+		setVisible(true);
+
+		JCheckBox j[] = new JCheckBox[15]; // 객체배열 선언
+		c.setLayout(new GridLayout(3, 5));
+
+		for (int i = 0; i < j.length; i++) {
+			j[i] = new JCheckBox("체크" + (i + 1)); // 객체배열 생성
+			c.add(j[i]); // 15개를 부착해줘야 한다.
+		}
+	}
+
+	public static void main(String[] args) {
+		new gui_1213_2();
+	}
+}
