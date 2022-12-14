@@ -1,0 +1,35 @@
+package gui2;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+/*
+class Mouse extends MouseAdapter {
+	public void mouseEntered(MouseEvent e) {
+		JLabel j = (JLabel) e.getSource();
+		j.setText("재밌어");
+	}
+
+	public void mouseExited(MouseEvent e) {
+		JLabel j = (JLabel) e.getSource();
+		j.setText("자바는");
+	}
+}
+
+public class Ex_JFrame14 extends JFrame {
+	Ex_JFrame14() {
+		Container c = getContentPane();
+		setVisible(true);
+
+		JLabel j = new JLabel("자바는");
+		c.setLayout(new FlowLayout());
+
+		c.add(j);
+		j.addMouseListener(new Mouse());
+	}
+
+	public static void main(String[] args) {
+		new Ex_JFrame14();
+	}
+}
+*/
