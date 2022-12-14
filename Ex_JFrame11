@@ -1,0 +1,42 @@
+package gui2;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class Ex_JFrame11 extends JFrame {
+	Ex_JFrame11() {
+		// ok, cancle 버튼 2개 만듬
+
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		setVisible(true);
+		
+		JButton j1 = new JButton("ok");
+		JButton j2 = new JButton("cancle");
+
+		c.add(j1);
+		c.add(j2);
+		
+		j1.addActionListener(new ActionListener() {	//이것을 익명함수라고 한다. 이름이 없음
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("ok");
+			}
+		});
+		j2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				j2.setEnabled(false);	//버튼 비활성화
+			}
+		});
+	}
+
+	public static void main(String[] args) {
+		new Ex_JFrame11();
+	}
+}
