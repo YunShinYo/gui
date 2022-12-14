@@ -1,0 +1,36 @@
+package gui2;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+//프레임 만들기 위해 -> JFrame 클래스 상속
+public class Ex_JFrame7 extends JFrame {
+
+	Ex_JFrame7(){
+		super("타이틀");
+		//setTitle("타이틀");
+		setVisible(true);
+
+		Container c=getContentPane();
+		//창이 JFrame이고
+		//안에 회색부분이 getContentPane()임
+		//컨텐트 펜을 알아낸다. -> 컴포넌트 부착하기 위해
+		c.add(new JButton("user1"));
+		c.add(new JButton("user2"));
+		
+		
+		c.setLayout(new FlowLayout());
+		c.setBackground(Color.BLACK);
+	}
+
+	public static void main(String[] args) {
+		// GUI
+		// 컨테이너 : 컴포넌트를 포함할 수 잇는 것
+
+		new Ex_JFrame7();
+	}
+
+}
