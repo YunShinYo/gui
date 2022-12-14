@@ -1,0 +1,45 @@
+package gui3;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class Ex_JComboBox1 extends JFrame {
+	String s[]= {"크롱","뽀로로"};
+	
+	ImageIcon[] im= {new ImageIcon("C://Users/soldesk/Desktop/A221122/크롱.jpg"),
+			new ImageIcon("C://Users/soldesk/Desktop/A221122/뽀로로.jpg")};
+	
+	JLabel j=new JLabel(im[0]);	//이미지 아이콘을 컨테이너에 바로 붙일 수 없어서 J라벨에 붙여줘야 했다..
+	Ex_JComboBox1() {
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		setVisible(true);
+		
+		JComboBox com=new JComboBox(s);
+		c.add(j);
+		c.add(com);
+		
+		com.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JComboBox c=(JComboBox)e.getSource();
+				int i=c.getSelectedIndex();	//콤보박스의 선택된 아이템 인덱스 알아내기
+				j.setIcon(im[i]);
+			}
+		});
+		
+	}
+
+	public static void main(String[] args) {
+		new Ex_JComboBox1();
+	}
+
+}
