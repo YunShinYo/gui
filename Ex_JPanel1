@@ -1,0 +1,79 @@
+package gui3;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
+import javax.swing.JTextField;
+
+public class Ex_JPanel1 extends JFrame {
+	Ex_JPanel1() {
+		setTitle("다이어로그");
+		Container c = getContentPane();
+		setVisible(true);
+		c.add(new Dia(), BorderLayout.NORTH); // 패널을 프레임에 부착
+	}
+
+	class Dia extends Panel {
+		JButton j = new JButton("이름 입력");
+		JTextField j1 = new JTextField(10);
+		JButton j2 = new JButton("확인");
+		JButton j3 = new JButton("메시지");
+
+		Dia() {
+			setBackground(Color.BLACK);
+			add(j);
+			add(j1);
+			add(j2);
+			add(j3);
+
+			j.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// 팝업창(경고창)을 쉽게 만들수 있다
+					// 입력창이 있는 팝업창이다
+					String name = JOptionPane.showInputDialog("이름 입력");
+					if (name != null) { // 이름을 입력했다
+						j1.setText(name);
+					}
+				}
+			});
+
+			j2.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					int r = JOptionPane.showConfirmDialog(null, "계속?", 
+							"확인", JOptionPane.YES_NO_OPTION);
+					if(r==JOptionPane.CLOSED_OPTION) {
+						j1.setText("선택안했다");						
+					}
+					else if(r==JOptionPane.YES_OPTION) {
+						j1.setText("네");
+					}
+					else {
+						j1.setText("아니오");
+					}
+				}
+			});
+			
+			j3.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					JOptionPane.showMessageDialog(null, "경고", 
+							"메시지", JOptionPane.WARNING_MESSAGE);
+				}
+			});
+		}
+	}
+	public static void main(String[] args) {
+		new Ex_JPanel1();
+	}
+
+}
