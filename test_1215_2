@@ -37,7 +37,7 @@ public class test_1215_2 extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				b1.setEnabled(false);
-				jl.setText(Integer.toString((Integer.parseInt(jl.getText()) + 5)));
+				jl.setText(Double.toString((Double.parseDouble(jl.getText()) + 5)));
 				//jl.setText((Integer.parseInt(jl.getText()) + 5)+" ");
 			}
 		});
@@ -46,7 +46,7 @@ public class test_1215_2 extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				b2.setEnabled(false);
-				jl.setText(Integer.toString((Integer.parseInt(jl.getText()) - 5)));
+				jl.setText(Double.toString((Double.parseDouble(jl.getText()) - 5)));
 				//jl.setText((Integer.parseInt(jl.getText()) - 5)+" ");
 			}
 		});
@@ -55,7 +55,7 @@ public class test_1215_2 extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				b3.setEnabled(false);
-				jl.setText(Integer.toString((Integer.parseInt(jl.getText()) / 5)));
+				jl.setText(Double.toString((Double.parseDouble(jl.getText()) / 5)));
 				//jl.setText((Integer.parseInt(jl.getText()) / 5)+" ");
 			}
 		});
