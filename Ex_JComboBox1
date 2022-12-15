@@ -11,10 +11,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class Ex_JComboBox1 extends JFrame {
-	String s[]= {"크롱","뽀로로"};
+	String s[]= {"리락쿠마2","리락쿠마1"};
 	
-	ImageIcon[] im= {new ImageIcon("C://Users/soldesk/Desktop/A221122/크롱.jpg"),
-			new ImageIcon("C://Users/soldesk/Desktop/A221122/뽀로로.jpg")};
+	ImageIcon[] im= {new ImageIcon("C://Users/soldesk/Desktop/A221122/리락쿠마2.jpg"),
+			new ImageIcon("C://Users/soldesk/Desktop/A221122/리락쿠마1.jpg")};
 	
 	JLabel j=new JLabel(im[0]);	//이미지 아이콘을 컨테이너에 바로 붙일 수 없어서 J라벨에 붙여줘야 했다..
 	Ex_JComboBox1() {
