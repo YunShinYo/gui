@@ -1,0 +1,66 @@
+package gui4;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class Ex_JDialog1 extends JFrame {
+	JButton j = new JButton("Cal");
+	JLabel jl = new JLabel("계산 결과");
+
+	Ex_JDialog1() {
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		c.add(j);
+		c.add(jl);
+		setVisible(true);
+
+		j.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Aa a = new Aa(); // JDialog
+				a.setVisible(true); // 다이어로그
+			}
+		});
+	}
+
+	class Aa extends JDialog {
+		//Cal 버튼을 누르면 또 다른 다이어로그 창이 뜬다.
+		JTextField f1 = new JTextField(15);
+		JTextField f2 = new JTextField(15);
+
+		JButton j2 = new JButton("ADD");
+
+		Aa(){
+			setLayout(new FlowLayout());
+			add(new JLabel("두수를 더합니다"));
+			add(f1);
+			add(f2);
+			add(j2);
+			
+			j2.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					setVisible(false);	//다이어로그창 종료됨
+					
+					int sum=Integer.parseInt(f1.getText())+Integer.parseInt(f2.getText());	
+					//f1,f2에 문자열로 저장된 값을 언박싱 해준다..
+					jl.setText(Integer.toString(sum));
+				}
+			});
+		}
+	}
+
+	public static void main(String[] args) {
+		new Ex_JDialog1();
+	}
+
+}
