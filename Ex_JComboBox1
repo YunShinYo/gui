@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class Ex_JComboBox1 extends JFrame {
-	String s[]= {"리락쿠마2","리락쿠마1"};
+	String s[]= {"리락쿠마1","리락쿠마2"};
 	
 	ImageIcon[] im= {new ImageIcon("C://Users/soldesk/Desktop/A221122/리락쿠마2.jpg"),
 			new ImageIcon("C://Users/soldesk/Desktop/A221122/리락쿠마1.jpg")};
