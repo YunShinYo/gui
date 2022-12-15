@@ -1,0 +1,121 @@
+package gui4;
+
+//계산기...내가하던거 
+//12월 25일 2359까지 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.StringTokenizer;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Calc extends JFrame {
+	Calc() {
+		Container c = getContentPane();
+		setVisible(true);
+		c.setLayout(new BorderLayout());
+
+		JPanel j1 = new JPanel();
+		JPanel j2 = new JPanel();
+
+		j1.setLayout(new GridLayout(2, 1));
+		j2.setLayout(new GridLayout(4, 4, 30, 50));
+
+		JTextField jt = new JTextField(getWidth());
+		j1.add(jt);
+
+		String s[] = { "7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", "C", "=", "+" };
+		for (int i = 0; i < 16; i++) {
+			JButton b = new JButton(s[i]);
+			j2.add(b);
+			b.setBorderPainted(true);
+
+			if ((i + 1) % 4 == 0) {
+				b.setBackground(Color.yellow);
+			} else {
+				b.setBackground(Color.gray);
+			}
+
+			b.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					String op = "+";
+					StringBuffer sb = new StringBuffer();
+					sb.append(b.getText());
+
+					if (b.getText().equals("=")) {
+						StringTokenizer s = new StringTokenizer(sb.toString(), op);
+						if (op.equals("+")) {
+							String str[]=new String[s.countTokens()];
+							for (int i = 0; i < s.countTokens(); i++) {
+								str[i] = s.nextToken().toString();
+								System.out.print(str[0]);
+								System.out.print(Double.parseDouble(str[0])+Double.parseDouble(str[1])+" ");
+								//jt.setText(Double.toString(Double.parseDouble(str[0])+Double.parseDouble(str[1])));
+							}
+						} else if (op.equals("-")) {
+						} else if (op.equals("*")) {
+						} else if (op.equals("/")) {
+						}
+					}
+				}
+			});
+
+//			b.addActionListener(new ActionListener() {
+//				@Override
+//				public void actionPerformed(ActionEvent e) {
+//
+//					jt.setText(b.getText());
+//
+//					if (b.getText().equals("+")) {
+//						if (b.getText().equals("=")) {
+//							String plus = Double
+//									.toString(Double.parseDouble(jt.getText()) + Double.parseDouble(b.getText()));
+//							jt.setText(plus);
+//						}
+//					}
+//					if (b.getText().equals("-")) {
+//						if (b.getText().equals("=")) {
+//							String minus = Double
+//									.toString(Double.parseDouble(jt.getText()) - Double.parseDouble(b.getText()));
+//							jt.setText(minus);
+//						}
+//					}
+//					if (b.getText().equals("*")) {
+//						if (b.getText().equals("=")) {
+//							String times = Double
+//									.toString(Double.parseDouble(jt.getText()) * Double.parseDouble(b.getText()));
+//							jt.setText(times);
+//						}
+//					}
+//					if (b.getText().equals("/")) {
+//						if (b.getText().equals("=")) {
+//							String divide = Double
+//									.toString(Double.parseDouble(jt.getText()) / Double.parseDouble(b.getText()));
+//							jt.setText(divide);
+//						}
+//					}
+//					if (b.getText().equals("C")) {
+//						jt.setText("");
+//					}
+//				}
+//			});
+		}
+		c.add(BorderLayout.NORTH, j1);
+		c.add(BorderLayout.CENTER, j2);
+
+	}
+
+	public static void main(String[] args) {
+		// 계산기는 계산이 되어야하고
+		// 단어찾기는 단어를 textarea에 삽입후 영어단어를 기준으로 찾기 누르면 한글이 떠야함
+		new Calc();
+	}
+
+}
