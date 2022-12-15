@@ -1,0 +1,61 @@
+package gui4;
+import java.awt.Container;
+import java.awt.FlowLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+class Th extends Thread{
+	JLabel j;
+	Th(JLabel j){
+		this.j=j;
+	}
+	public void run() {
+		int n=0;
+		
+		while(true) {
+			j.setText(Integer.toString(n));
+			n++;
+			try {
+				sleep(1000);
+			}
+			catch(Exception e) {
+				return;
+			}
+		}
+	}
+}
+public class gui_test_1215_2 extends JFrame{
+	gui_test_1215_2(){
+		Container c=getContentPane();
+		c.setLayout(new FlowLayout());
+		
+		JLabel j=new JLabel();
+		c.add(j);
+		
+		Th t=new Th(j);	//스레드객체 생성
+		setVisible(true);
+		
+		t.start();	//스레드 실행
+	}
+	public static void main(String[] args) {
+		// 1. 다음코드를보고작성해라. 쓰레드가실행될때화면에1초단위로정수를출력하게끔만들어라.
+		// (정수0부터시작하여프레임에정수를문자열로변경해서넣고try문안에서1초씩정지하게끔만들어라예외발생하면쓰레드는종료된다.(return)
+		// Public class 여러분클래스명extends JFrame{
+		// 여러분클래스명(){
+		// Container c=getContentPane();
+		// c.setLayout(new FlowLayout());
+		// JLable j=new JLabel();
+		// c.add(j);
+		// Th t=new Th(j); //쓰레드객체생성
+		// setVisible(true);
+		// t.start(); //쓰레드실행
+		// }
+		// Main(){
+		// New 여러분클래스명();
+		// }
+		// }
+		
+	new gui_test_1215_2();
+	}
+}
