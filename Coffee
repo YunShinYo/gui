@@ -1,0 +1,171 @@
+package gui4;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class Coffee extends JFrame {
+
+	int n = 0;
+	int m = 0;
+	int mm = 0;
+
+	Coffee() {
+		setSize(600, 600);
+		Container c = getContentPane();
+		c.setLayout(null);
+		JButton jb1 = new JButton("아메리카노");
+		jb1.setBounds(50, 50, 100, 100);
+		JLabel jl1 = new JLabel("5000원");
+		jl1.setBounds(75, 150, 100, 50);
+		JButton p1 = new JButton("+");
+		p1.setBounds(50, 200, 20, 20);
+		JTextField jt1 = new JTextField(5);
+		jt1.setBounds(75, 200, 50, 20);
+		JButton m1 = new JButton("-");
+		m1.setBounds(130, 200, 20, 20);
+		JButton j1 = new JButton("확인");
+		j1.setBounds(50, 250, 100, 30);
+		JLabel jj1 = new JLabel(" ");
+		jj1.setBounds(75, 300, 50, 50);
+		JButton jb2 = new JButton("  카페라떼  ");
+		jb2.setBounds(200, 50, 100, 100);
+		JLabel jl2 = new JLabel("5500원");
+		jl2.setBounds(225, 150, 100, 50);
+		JButton p2 = new JButton("+");
+		p2.setBounds(200, 200, 20, 20);
+		;
+		JTextField jt2 = new JTextField(5);
+		jt2.setBounds(225, 200, 50, 20);
+		JButton m2 = new JButton("-");
+		m2.setBounds(280, 200, 20, 20);
+		JButton j2 = new JButton("확인");
+		j2.setBounds(200, 250, 100, 30);
+		JLabel jj2 = new JLabel(" ");
+		jj2.setBounds(225, 300, 50, 50);
+		JButton jb3 = new JButton("  카푸치노  ");
+		jb3.setBounds(350, 50, 100, 100);
+		JLabel jl3 = new JLabel("6000원");
+		jl3.setBounds(375, 150, 100, 50);
+		JButton p3 = new JButton("+");
+		p3.setBounds(350, 200, 20, 20);
+		JTextField jt3 = new JTextField(5);
+		jt3.setBounds(375, 200, 50, 20);
+		JButton m3 = new JButton("-");
+		m3.setBounds(430, 200, 20, 20);
+		JButton j3 = new JButton("확인");
+		j3.setBounds(350, 250, 100, 30);
+		JLabel jj3 = new JLabel(" ");
+		jj3.setBounds(375, 300, 50, 50);
+		jb1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				jt1.setText(Integer.toString(n));
+				jb1.setEnabled(false);
+			}
+		});
+		p1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				jt1.setText(Integer.toString(++n));
+			}
+		});
+		m1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				jt1.setText(Integer.toString(--n));
+			}
+		});
+		j1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				p1.setEnabled(false);
+				jt1.setEnabled(false);
+				m1.setEnabled(false);
+				j1.setEnabled(false);
+				jj1.setText(n * 5000 + "원");
+			}
+		});
+		jb2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				jt2.setText(Integer.toString(m));
+				jb2.setEnabled(false);
+			}
+		});
+		p2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				jt2.setText(Integer.toString(++m));
+			}
+		});
+		m2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				jt2.setText(Integer.toString(--m));
+			}
+		});
+		j2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				p2.setEnabled(false);
+				jt2.setEnabled(false);
+				m2.setEnabled(false);
+				j2.setEnabled(false);
+				jj2.setText(m * 5500 + "원");
+			}
+		});
+		jb3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				jt3.setText(Integer.toString(mm));
+				jb3.setEnabled(false);
+			}
+		});
+		p3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				jt3.setText(Integer.toString(++mm));
+			}
+		});
+		m3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				jt3.setText(Integer.toString(--mm));
+			}
+		});
+		j3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				p3.setEnabled(false);
+				jt3.setEnabled(false);
+				m3.setEnabled(false);
+				j3.setEnabled(false);
+				jj3.setText(mm * 6000 + "원");
+			}
+		});
+		c.add(jb1);
+		c.add(jl1);
+		c.add(p1);
+		c.add(jt1);
+		c.add(m1);
+		c.add(j1);
+		c.add(jj1);
+		c.add(jb2);
+		c.add(jl2);
+		c.add(p2);
+		c.add(jt2);
+		c.add(m2);
+		c.add(j2);
+		c.add(jj2);
+		c.add(jb3);
+		c.add(jl3);
+		c.add(p3);
+		c.add(jt3);
+		c.add(m3);
+		c.add(j3);
+		c.add(jj3);
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		new Coffee();
+	}
+}
