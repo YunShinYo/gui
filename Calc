@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Calc extends JFrame {
+	static String op;
 	Calc() {
 		Container c = getContentPane();
 		setVisible(true);
@@ -47,9 +48,8 @@ public class Calc extends JFrame {
 			b.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					String str = jt.getText();
-					String op = b.getText();
-					String[] str2 = str.split(op);
+					double result = 0;
+					String[] str2=null;
 					if (b.getText().equals("0")) {
 						jt.setText(jt.getText() + b.getText());
 					} else if (b.getText().equals("1")) {
@@ -70,52 +70,74 @@ public class Calc extends JFrame {
 						jt.setText(jt.getText() + b.getText());
 					} else if (b.getText().equals("9")) {
 						jt.setText(jt.getText() + b.getText());
+
 					} else if (b.getText().equals("+")) {
-						op = "+";
 						jt.setText(jt.getText() + b.getText());
-						int result = Integer.parseInt(str2[0]) + Integer.parseInt(str2[1]);
-						jt.setText(Integer.toString(result));
+						setOp("+");
 					} else if (b.getText().equals("-")) {
-						op = "-";
-						int result = Integer.parseInt(str2[0]) - Integer.parseInt(str2[1]);
-						jt.setText(Integer.toString(result));
+						jt.setText(jt.getText() + b.getText());
+						setOp("-");
 					} else if (b.getText().equals("*")) {
-						op = "*";
-						int result = Integer.parseInt(str2[0]) * Integer.parseInt(str2[1]);
-						jt.setText(Integer.toString(result));
+						jt.setText(jt.getText() + b.getText());
+						setOp("*");
 					} else if (b.getText().equals("/")) {
-						op = "/";
-						int result = Integer.parseInt(str2[0]) / Integer.parseInt(str2[1]);
-						jt.setText(Integer.toString(result));
+						jt.setText(jt.getText() + b.getText());
+						setOp("/");
 					}
 
-					else if (b.getText().equals("C")) {
+					else if (b.getText().equals("=")) {
+						String str = jt.getText();
+						switch (get()) {
+						case "+":
+							str2 = str.split("\\+");
+							for (int i = 0; i < str2.length; i++) {
+								String a=str2[i].trim();
+								result += Double.parseDouble(a);
+							}
+							jt.setText(Double.toString(result));
+							break;
+						case "-":
+							str2 = str.split("\\-");
+							for (int i = 0; i < str2.length; i++) {
+								String a=str2[i].trim();
+								result -= Double.parseDouble(a);
+							}
+							jt.setText(Double.toString(result));
+							break;
+						case "*":
+							str2 = str.split("\\*");
+							for (int i = 0; i < str2.length; i++) {
+								String a=str2[i].trim();
+								result *= Double.parseDouble(a);
+							}
+							jt.setText(Double.toString(result));
+							break;
+						case "/":
+							str2 = str.split("\\/");
+							for (int i = 0; i < str2.length; i++) {
+								String a=str2[i].trim();
+								result /= Double.parseDouble(a);
+							}
+							jt.setText(Double.toString(result));
+							break;
+						}
+					} else if (b.getText().equals("C")) {
 						jt.setText("");
 					}
 				}
 			});
-			new JButton(s[14]).addActionListener(new ActionListener() {
-
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					if (op.equals("+")) {
-						jt.setText(Integer.parseInt(jt.getText()) + Integer.parseInt(b.getText()) + " ");
-					} else if (op.equals("-")) {
-						jt.setText(Integer.parseInt(jt.getText()) - Integer.parseInt(b.getText()) + " ");
-					} else if (op.equals("*")) {
-						jt.setText(Integer.parseInt(jt.getText()) * Integer.parseInt(b.getText()) + " ");
-					} else if (op.equals("/")) {
-						jt.setText(Integer.parseInt(jt.getText()) / Integer.parseInt(b.getText()) + " ");
-					}
-				}
-			});
-
 		}
 		c.add(BorderLayout.NORTH, j1);
 		c.add(BorderLayout.CENTER, j2);
 
+		
 	}
-
+	public void setOp(String a) {
+		op=a;
+	}
+	public String get() {
+		return op;
+	}
 	public static void main(String[] args) {
 		// 계산기는 계산이 되어야하고
 		// 단어찾기는 단어를 textarea에 삽입후 영어단어를 기준으로 찾기 누르면 한글이 떠야함
