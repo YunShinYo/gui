@@ -8,7 +8,6 @@ import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.StringTokenizer;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,6 +16,8 @@ import javax.swing.JTextField;
 
 public class Calc extends JFrame {
 	static String op;
+	double result1;
+
 	Calc() {
 		Container c = getContentPane();
 		setVisible(true);
@@ -48,8 +49,7 @@ public class Calc extends JFrame {
 			b.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					double result = 0;
-					String[] str2=null;
+
 					if (b.getText().equals("0")) {
 						jt.setText(jt.getText() + b.getText());
 					} else if (b.getText().equals("1")) {
@@ -73,52 +73,41 @@ public class Calc extends JFrame {
 
 					} else if (b.getText().equals("+")) {
 						jt.setText(jt.getText() + b.getText());
-						setOp("+");
+						set("+");
 					} else if (b.getText().equals("-")) {
 						jt.setText(jt.getText() + b.getText());
-						setOp("-");
+						set("-");
 					} else if (b.getText().equals("*")) {
 						jt.setText(jt.getText() + b.getText());
-						setOp("*");
+						set("*");
 					} else if (b.getText().equals("/")) {
 						jt.setText(jt.getText() + b.getText());
-						setOp("/");
+						set("/");
 					}
 
 					else if (b.getText().equals("=")) {
+						String[] str2 = new String[3];
 						String str = jt.getText();
 						switch (get()) {
 						case "+":
 							str2 = str.split("\\+");
-							for (int i = 0; i < str2.length; i++) {
-								String a=str2[i].trim();
-								result += Double.parseDouble(a);
-							}
-							jt.setText(Double.toString(result));
+							result1 = Double.parseDouble(str2[0]) + Double.parseDouble(str2[1]);
+							jt.setText(Double.toString(result1));
 							break;
 						case "-":
 							str2 = str.split("\\-");
-							for (int i = 0; i < str2.length; i++) {
-								String a=str2[i].trim();
-								result -= Double.parseDouble(a);
-							}
-							jt.setText(Double.toString(result));
+							result1 = Double.parseDouble(str2[0]) - Double.parseDouble(str2[1]);
+							jt.setText(Double.toString(result1));
 							break;
 						case "*":
 							str2 = str.split("\\*");
-							for (int i = 0; i < str2.length; i++) {
-								String a=str2[i].trim();
-								result *= Double.parseDouble(a);
-							}
-							jt.setText(Double.toString(result));
+							result1 = Double.parseDouble(str2[0]) * Double.parseDouble(str2[1]);
+							jt.setText(Double.toString(result1));
 							break;
 						case "/":
 							str2 = str.split("\\/");
-							for (int i = 0; i < str2.length; i++) {
-								String a=str2[i].trim();
-								result /= Double.parseDouble(a);
-							}
-							jt.setText(Double.toString(result));
+							result1 = Double.parseDouble(str2[0]) / Double.parseDouble(str2[1]);
+							jt.setText(Double.toString(result1));
 							break;
 						}
 					} else if (b.getText().equals("C")) {
@@ -130,14 +119,16 @@ public class Calc extends JFrame {
 		c.add(BorderLayout.NORTH, j1);
 		c.add(BorderLayout.CENTER, j2);
 
-		
 	}
-	public void setOp(String a) {
-		op=a;
+
+	public void set(String a) {
+		op = a;
 	}
+
 	public String get() {
 		return op;
 	}
+
 	public static void main(String[] args) {
 		// 계산기는 계산이 되어야하고
 		// 단어찾기는 단어를 textarea에 삽입후 영어단어를 기준으로 찾기 누르면 한글이 떠야함
