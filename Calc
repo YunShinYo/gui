@@ -138,3 +138,8 @@ public class Calc extends JFrame {
 	}
 
 }
+
+
+//CRUD : create read update delete
+//이러이러한 기능을 CRUD를 구현을 했다고 한줄 쓸수 있다!
+
