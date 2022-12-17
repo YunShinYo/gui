@@ -1,26 +1,25 @@
-package gui4;
+package test1;
 
 //계산기...
-//https://comain.tistory.com/14
-//계산기, 달력만들기 등등
-//https://blog.naver.com/it_jblog/222731658763
+//https://sky17777.tistory.com/2
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.StringTokenizer;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Calc extends JFrame {
-	static String op;
-	double result1;
+public class test2 extends JFrame {
+	String aa, op, str3;
+	double result1, temp;
 
-	Calc() {
+	test2() {
 		Container c = getContentPane();
 		setVisible(true);
 		c.setLayout(new BorderLayout());
@@ -53,62 +52,80 @@ public class Calc extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 
 					if (b.getText().equals("0")) {
+						str3 = b.getText();
 						jt.setText(jt.getText() + b.getText());
 					} else if (b.getText().equals("1")) {
+						str3 = b.getText();
 						jt.setText(jt.getText() + b.getText());
 					} else if (b.getText().equals("2")) {
+						str3 = b.getText();
 						jt.setText(jt.getText() + b.getText());
 					} else if (b.getText().equals("3")) {
+						str3 = b.getText();
 						jt.setText(jt.getText() + b.getText());
 					} else if (b.getText().equals("4")) {
+						str3 = b.getText();
 						jt.setText(jt.getText() + b.getText());
 					} else if (b.getText().equals("5")) {
+						str3 = b.getText();
 						jt.setText(jt.getText() + b.getText());
 					} else if (b.getText().equals("6")) {
+						str3 = b.getText();
 						jt.setText(jt.getText() + b.getText());
 					} else if (b.getText().equals("7")) {
+						str3 = b.getText();
 						jt.setText(jt.getText() + b.getText());
 					} else if (b.getText().equals("8")) {
+						str3 = b.getText();
 						jt.setText(jt.getText() + b.getText());
 					} else if (b.getText().equals("9")) {
+						str3 = b.getText();
 						jt.setText(jt.getText() + b.getText());
 
 					} else if (b.getText().equals("+")) {
 						jt.setText(jt.getText() + b.getText());
+						temp+=Double.parseDouble(str3);
 						set("+");
 					} else if (b.getText().equals("-")) {
 						jt.setText(jt.getText() + b.getText());
+						temp-=Double.parseDouble(str3);
 						set("-");
 					} else if (b.getText().equals("*")) {
 						jt.setText(jt.getText() + b.getText());
+						temp*=Double.parseDouble(str3);
 						set("*");
 					} else if (b.getText().equals("/")) {
 						jt.setText(jt.getText() + b.getText());
+						temp/=Double.parseDouble(str3);
 						set("/");
 					}
 
 					else if (b.getText().equals("=")) {
-						String[] str2 = new String[3];
+						String[] str2 = new String[2];
 						String str = jt.getText();
 						switch (get()) {
 						case "+":
 							str2 = str.split("\\+");
-							result1 = Double.parseDouble(str2[0]) + Double.parseDouble(str2[1]);
+							aa=str2[str2.length-1];
+							result1 = temp+Double.parseDouble(aa);
 							jt.setText(Double.toString(result1));
 							break;
 						case "-":
 							str2 = str.split("\\-");
-							result1 = Double.parseDouble(str2[0]) - Double.parseDouble(str2[1]);
+							aa=str2[str2.length-1];
+							result1 = temp-Double.parseDouble(aa);
 							jt.setText(Double.toString(result1));
 							break;
 						case "*":
 							str2 = str.split("\\*");
-							result1 = Double.parseDouble(str2[0]) * Double.parseDouble(str2[1]);
+							aa=str2[str2.length-1];
+							result1 = temp*Double.parseDouble(aa);
 							jt.setText(Double.toString(result1));
 							break;
 						case "/":
 							str2 = str.split("\\/");
-							result1 = Double.parseDouble(str2[0]) / Double.parseDouble(str2[1]);
+							aa=str2[str2.length-1];
+							result1 = temp/Double.parseDouble(aa);
 							jt.setText(Double.toString(result1));
 							break;
 						}
@@ -134,12 +151,7 @@ public class Calc extends JFrame {
 	public static void main(String[] args) {
 		// 계산기는 계산이 되어야하고
 		// 단어찾기는 단어를 textarea에 삽입후 영어단어를 기준으로 찾기 누르면 한글이 떠야함
-		new Calc();
+		new test2();
 	}
 
 }
-
-
-//CRUD : create read update delete
-//이러이러한 기능을 CRUD를 구현을 했다고 한줄 쓸수 있다!
-
