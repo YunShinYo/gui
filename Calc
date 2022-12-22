@@ -15,8 +15,9 @@ import javax.swing.JTextField;
 public class test10 extends JFrame {
 
 	//-------------------------------------------------------
+	//(계산기 : http://hongkwan.blogspot.com/2013/07/130704-9-calculatorjava-swing-awt-event.html)
 	//제가 코드를 너무 이상하게 짜서 이해를 돕기 위하여 코드에 대한 설명을 덧붙이겠습니다!
-	
+
 	//이 계산기는 =버튼을 누르면 계산 결과가 나옵니다.
 	//계산은 숫자버튼을 눌렀을 때 합니다.(저장된 연산자가 있을 경우에만)
 	//그런데 연산자가 한개일때는 문제가 없지만
